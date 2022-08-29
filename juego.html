@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<Title>Ahoracado</Title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style_second_page.css">
+	<link rel="stylesheet" href="css/style_third_page.css">
+	<script type="text/javascript" src="jscript/botones.js"></script>
+	<script type="text/javascript" src="jscript/juego.js"></script>
+	
+</head>
+<body onload="seleccionarPalabra()" onkeyup="teclaPresionada(event)">
+	<header>
+		<img src="imagenes/Logo.png" alt="Logo Alura" class="logoAlura">
+	</header>
+	<main>
+				<canvas class="imagenes" id="canvas" >
+				</canvas>
+				<div class="cajaPalabra" id="cajaPalabra" 	width="800">
+				</div>
+				
+				<div id="letrasIngresadas"  class="letrasIngresadas">	
+					<!--<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off">-->
+				</div>
+			</div>
+			<div class="botones">			
+					<input type="submit" id="nuevo" value="Nuevo Juego" class="guardar" onclick="" >
+					<input type="submit" id="desistir" value="Desistir" class="cancelar" onclick="" >
+		</div>
+	</main>
+	<footer>		
+			<p> &copy Copyright Jorge Marino - 2022</p> 
+	</footer>
+</body>
+	
+
+
+
+</html>

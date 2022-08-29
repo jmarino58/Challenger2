@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<Title>Ahoracado</Title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style_second_page.css">
+	<script type="text/javascript" src="jscript/botones.js"></script>
+	
+	
+</head>
+<body>
+	<header>
+		<img src="imagenes/Logo.png" alt="Logo Alura" class="logoAlura">
+	</header>
+	<main>
+			<div>
+					<input type="text" id="palabra"  class="palabra"  placeholder="Ingrese una Palabra" autocomplete="off" oninput="activarDesactivarBotones()" required>
+			</div>
+			
+			
+				<div class="aclaracion">	
+					<p><img src="imagenes/Vector.png">Máximo 8 letras</p>		
+				</div>
+			<div class="botones">			
+					<input type="submit" id="guardar" value="Guardar y Empezar" class="guardar" autocomplete="off" disabled="true" onclick="guardarTexto()" >
+					<input type="submit" id="Cancelar" value="Cancelar" class="cancelar" onclick="window.location.href ='index.html'" >
+			</div>
+	</main>
+	<footer>		
+			<p> &copy Copyright Jorge Marino - 2022</p> 
+	</footer>
+</body>
+	
+
+
+
+</html>
+
+
+

@@ -1,0 +1,54 @@
+.imagenes{
+	position:relative;
+	width: 300px;
+	height: 300px;
+	/*left: 550px;*/
+	top: 5px;
+	background:#FFFFFF;
+	justify-content:center;
+}
+
+.imagenGuion{
+	font-size:40px;
+	
+}
+
+.cajaPalabra{
+	
+	position:relative;
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	height:60px;
+	top:40px;
+	gap:10px;
+	justify-content:center;
+	margin:0 auto;
+	
+}
+
+.letrasIngresadas{
+	position:relative;
+	top:25px;
+	width:320px;
+	height:40px;
+	display:flex;
+	flex-direction: row;
+	/*justify-content:center;*/
+	margin:0 auto;
+	gap: 30px;
+	padding=5px;
+
+}
+
+.letrasIngresadas  p{
+	width:4px;
+		/*font-weight: 400;*/
+	font-size: 26px;
+	line-height: 150%;
+	
+	/* identical to box height, or 48px */
+	/* Dark blue/dark-blue-300 */
+	color: #0A3871;
+	
+}
