@@ -4,7 +4,7 @@
 	width:500px;
 	height: 48px;
 	left: 425px;
-	top: 256px;
+	top: 100px;
 
 	font-family: 'Inter';
 	font-style: normal;
@@ -21,41 +21,43 @@
 	
 }
 
-.botones{
-	position:absolute;
-	display:flex;
-	flex-direction: row;
-	flex-wrap:wrap;
-	align-items: center;
-	top:440px;
-	width:100%;
-	/*text-align:center;*/
-	padding: 0 0px 6px;
-	/*right:40px;*/
-	justify-content: center
-	
-	
-}
 .botones > div {
 	flex:100%;
 }
-
+/*
 .aclaracion{
-	
 	position:absolute;
 	padding-bottom:10px;
 	font-family: 'Inter';
 	font-style: italic bold;
 	font-size: 14px;
 	text-align: center;
-	top: 350px;
+	top: 250px;
 	left:32vw;
-/* Gray/gray-400 */
+
 	color: #FF0000;
 }
 .aclaracion p img {
 	padding:0px 20px 5px 0;
 	vertical-align:middle;
+	
+}
+
+*/
+.botones{
+	position:absolute;
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	align-items: center;
+	top:300px;
+	gap:10px;
+	width:100%;
+	/*text-align:center;*/
+	padding: 0 0px 6px;
+	/*right:40px;*/
+	justify-content: center
+	
 	
 }
 	

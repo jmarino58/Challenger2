@@ -12,9 +12,10 @@
 	<script type="text/javascript" src="jscript/juego.js"></script>
 	
 </head>
-<body onload="seleccionarPalabra()" onkeyup="teclaPresionada(event)">
+<body onload="seleccionarPalabra()" >
 	<header>
 		<img src="imagenes/Logo.png" alt="Logo Alura" class="logoAlura">
+		<audio src="audios/quirky_comedy_juego.mp3" id="audio3" volume="0.5" autoplay loop></audio>
 	</header>
 	<main>
 				<canvas class="imagenes" id="canvas" >
@@ -22,18 +23,27 @@
 				<div class="cajaPalabra" id="cajaPalabra" 	width="800">
 				</div>
 				
-				<div id="letrasIngresadas"  class="letrasIngresadas">	
+				<div id="letrasIngresadas"  class="letrasIngresadas" onkeyup="teclaPresionada(event)" tabindex="-1" >	
 					<!--<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off">-->
 				</div>
 			</div>
 			<div class="botones">			
-					<input type="submit" id="nuevo" value="Nuevo Juego" class="guardar" onclick="" >
-					<input type="submit" id="desistir" value="Desistir" class="cancelar" onclick="" >
-		</div>
+					<input type="submit" id="nuevo" value="Nuevo Juego" class="guardar" onclick="nuevaPartida()" >
+					<input type="submit" id="desistir" value="Desistir" class="cancelar" onclick="audioClick(id)" >
+			</div>
+			
 	</main>
-	<footer>		
+	
+	<div id="perdiste" class="perdiste">
+			<p>PERDISTE</p>
+	</div>
+	<footer>
+			<!--<div class="mute">
+				<img src="imagenes/unmute_icon.png" id="btn_mute"  onclick="muteButton('audio3')" width="20px" height="20px">
+			</div>-->
 			<p> &copy Copyright Jorge Marino - 2022</p> 
 	</footer>
+	
 </body>
 	
 

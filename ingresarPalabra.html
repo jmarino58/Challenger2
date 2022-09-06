@@ -14,22 +14,29 @@
 <body>
 	<header>
 		<img src="imagenes/Logo.png" alt="Logo Alura" class="logoAlura">
+		<audio src="audios/pink_soldiers_agregarPalabra.mp3" id="audio2" volume="0.1" autoplay loop></audio>
 	</header>
 	<main>
 			<div>
 					<input type="text" id="palabra"  class="palabra"  placeholder="Ingrese una Palabra" autocomplete="off" oninput="activarDesactivarBotones()" required>
 			</div>
-			
-			
+			<!--<div>
+				<ol id="listaPalabras">
+				</ol>
+			</div>
 				<div class="aclaracion">	
 					<p><img src="imagenes/Vector.png">Máximo 8 letras</p>		
-				</div>
+				</div>-->
 			<div class="botones">			
-					<input type="submit" id="guardar" value="Guardar y Empezar" class="guardar" autocomplete="off" disabled="true" onclick="guardarTexto()" >
-					<input type="submit" id="Cancelar" value="Cancelar" class="cancelar" onclick="window.location.href ='index.html'" >
+					<input type="submit" id="guardar" value="Guardar y Empezar" class="guardar" autocomplete="off" disabled="true" onclick="audioClick(id)" >
+					<input type="submit" id="Cancelar" value="Cancelar" class="cancelar" onclick="audioClick(id)" >
 			</div>
+			
 	</main>
-	<footer>		
+	<footer>
+			<!--<div class="mute">
+				<img src="imagenes/unmute_icon.png" id="btn_mute"  onclick="muteButton('audio2')" width="20px" height="20px">
+			</div>-->
 			<p> &copy Copyright Jorge Marino - 2022</p> 
 	</footer>
 </body>

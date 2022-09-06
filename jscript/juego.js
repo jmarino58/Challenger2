@@ -1,10 +1,16 @@
-	var errores=0;	
-	var letrasTipeadas="";
+	var errores;	
+	var letrasTipeadas=[];
+	var cantidadAciertos;
 	function seleccionarPalabra(){
-			var valor = Math.floor(Math.random()*listaPalabras.length);
-			palabra = listaPalabras[valor].toUpperCase();
-		//dibujarFigura(0);
+			var lista = sessionStorage.getItem("palabras").split(","); 
+			var listaIngresos = document.getElementById("letrasIngresadas").focus();
+			var valor = Math.floor(Math.random()*lista.length);
+			palabra = lista[valor].toUpperCase();
+			cantidadAciertos=0;
+			errores=0;
+		dibujarFigura(errores);
 		dibujarGuion(palabra.length);
+		
 	}
 	
 	
@@ -22,7 +28,6 @@
 		var coordImagenes=[[x,y,200,2],[x+80,y,2,-100],[x+80,y-100,40,2],[x+118,y-110,2,40],[x+114,y-83,10,10],[x+118,y-73,2,20],[x+110,y-73,10,10],[x+117,y-73,10,10],[x+110,y-53,10,10],[x+117,y-53,10,10]];
 	
 		var imagenes=['imagenes/base.svg','imagenes/poste.svg','imagenes/techo.svg','imagenes/soga.svg','imagenes/cabeza.svg','imagenes/cuerpo.svg','imagenes/brazoDcho.svg','imagenes/brazoIzq.svg','imagenes/pieDcho.svg','imagenes/pieIzq.svg'];
-		console.log(numero);
 		const canvas = document.querySelector("canvas");
 		const context = canvas.getContext('2d');
 		/*if (numero!=4){
@@ -33,10 +38,12 @@
 			*/
 			var img = new Image(); 
 			img.src =imagenes[numero];
-	
-			context.drawImage(img,coordImagenes[numero][0],coordImagenes[numero][1],coordImagenes[numero][2],coordImagenes[numero][3]);
-      
+			img.onload =function(){
 			
+			context.drawImage(img,coordImagenes[numero][0],coordImagenes[numero][1],coordImagenes[numero][2],coordImagenes[numero][3]);
+			
+			context.restore();
+			}
 			
 		/*} else{
 			context.fillStyle = "blue";
@@ -77,9 +84,15 @@
 	function dibujarGuion(cantidad){
 		
 		var caja = document.getElementById('cajaPalabra');	
+		var elemento=document.getElementById('letrasIngresadas');
+		
+		// reseteo las dos cajas de letras
+		caja.innerHTML='';
+		elemento.innerHTML='';
 		const img= document.createElement('img');
 		img.src='imagenes/baseLetras.svg';
 		img.className='imagenGuion';
+		
 		var tamanho=img.width;
 		
 		
@@ -93,8 +106,6 @@
 			img.src='imagenes/baseLetras.svg';
 			img.className='imagenGuion';
 			img.id=x;
-			console.log(paddingInicial);
-			console.log(cantidad);
 			caja.appendChild(img);
 			
 		}
@@ -105,50 +116,95 @@
 	
 	function teclaPresionada(event){
 		if ((event.keyCode >=65 && event.keyCode<=90) || (event.keyCode>=97 && event.keyCode<=122)){
-		var elemento=document.getElementById('letrasIngresadas');
-		const p= document.createElement("p");
-		var letra=String.fromCharCode(event.keyCode);
-		if (!letrasTipeadas.includes(letra)){
-			const node= document.createTextNode(letra);
-			letrasTipeadas=+letra;
-			p.appendChild(node);
-			elemento.appendChild(p);
+			var letra=String.fromCharCode(event.keyCode);
+			letra=letra.toUpperCase();
 			evaluarLetra(letra);
+
+		} else if (event.keyCode==13 && event.keyCode==27 && event.keyCode==32 && event.keyCode==9 && event.keyCode==8 ){
+			
+			
+				alert("Error debe presionar una letra del abecedario");
 			}
-		} else {
-			alert("Error debe presionar una letra del abecedario");
 			
-			
-		}
 	}
 	
+	
 	function evaluarLetra(letra){
-		var encontrada=true;
+		var noEncontrada=true;
 		
 		for(const indice in palabra){
 			
 			if (letra==palabra[indice]){
-				encontrada=false;		
+				noEncontrada=false;		
+				cantidadAciertos++;
 				var img = document.getElementById(indice);
 				img.src="";
 				img.alt=letra;
-						
 			}
+
+
 			
 				
 		}
-		 	
-		if (encontrada){
+		
+		 if (cantidadAciertos==palabra.length){
+			alert("FELICITACIONES HAZ ACERTADO LA PALABRA");
 			
-			dibujarFigura(errores);
-			errores++;
-			if (errores==10){
-				alert("Haz Perdido la Palabra era  " + palabra); 
+		}	
+		if (noEncontrada){
+			const audio=new Audio();
+			audio.src="audios/invalid_selection.mp3";
+			
+			var elemento=document.getElementById('letrasIngresadas');
+			
+			if (!letrasTipeadas.includes(letra)){
+				const p= document.createElement("p");
+				const node= document.createTextNode(letra);
+				letrasTipeadas.push(letra);
+				p.appendChild(node);
+				elemento.appendChild(p);
+				audio.play();
+				errores++;
+				dibujarFigura(errores);
+			
+			}
+			
+			if (errores==9){
+				perdiste();
 				
 			}
 		}
 		
 		
 		}
+		
+	function perdiste(){
+		const audio=new Audio();
+		audio.src="audios/wahwah.mp3";
+		audio.play();
+		var msjPerdiste=document.getElementById('perdiste');
+		msjPerdiste.style.visibility='visible';
+		setTimeout(ocultar,2000);
+	};
+
+	function ocultar(){
+		var msjPerdiste=document.getElementById('perdiste');
+		var nuevoJuego=document.getElementById('nuevo');
+		nuevoJuego.focus();
+		msjPerdiste.style.visibility='hidden';
+		
+	};
+
+		
+		
 		
 	
+	
+	
+	
+	function nuevaPartida(){
+		const audio=new Audio();
+		audio.src="audios/tap_button.mp3";
+		audio.play();
+		seleccionarPalabra();
+	}
