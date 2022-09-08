@@ -1,17 +1,29 @@
+body{
+	background:url("../imagenes/background2.jpg");	
+	background-size:cover;
+	
+}
+.contenedorPalabra{
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	
+}
+
 .palabra{
-	position: absolute;
-	display: inline;
+	position:absolute;
 	width:500px;
 	height: 48px;
-	left: 425px;
 	top: 100px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	/*font-weight: 400;*/
 	font-size: 32px;
 	line-height: 150%;
-	margin: 0 auto;
+	
 	/* identical to box height, or 48px */
 
 	/* Dark blue/dark-blue-300 */
@@ -20,11 +32,11 @@
 
 	
 }
-
+/*
 .botones > div {
 	flex:100%;
 }
-/*
+
 .aclaracion{
 	position:absolute;
 	padding-bottom:10px;

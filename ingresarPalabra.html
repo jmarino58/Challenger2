@@ -17,7 +17,7 @@
 		<audio src="audios/pink_soldiers_agregarPalabra.mp3" id="audio2" volume="0.1" autoplay loop></audio>
 	</header>
 	<main>
-			<div>
+			<div class="contenedorPalabra">
 					<input type="text" id="palabra"  class="palabra"  placeholder="Ingrese una Palabra" autocomplete="off" oninput="activarDesactivarBotones()" required>
 			</div>
 			<!--<div>
@@ -28,8 +28,8 @@
 					<p><img src="imagenes/Vector.png">Máximo 8 letras</p>		
 				</div>-->
 			<div class="botones">			
-					<input type="submit" id="guardar" value="Guardar y Empezar" class="guardar" autocomplete="off" disabled="true" onclick="audioClick(id)" >
-					<input type="submit" id="Cancelar" value="Cancelar" class="cancelar" onclick="audioClick(id)" >
+					<input type="submit" id="guardar" value="Guardar y Empezar" class="guardar" autocomplete="off" disabled="true" onclick="jugarClick(id)" >
+					<input type="submit" id="cancelar" value="Cancelar" class="cancelar" onclick="jugarClick(id)" >
 			</div>
 			
 	</main>

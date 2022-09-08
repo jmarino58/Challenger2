@@ -6,6 +6,7 @@
 	<Title>Ahoracado</Title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	
 	<script type="text/javascript" src="jscript/botones.js"></script>
 	
 </head>
@@ -15,54 +16,54 @@
 		<audio src="audios/melloblack_index.mp3" id="audio1" autoplay loop></audio>
 	</header>
 	<main>
-		<div class="contenedor">
+		<div class="contenedor" >
 			
-			
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>HarryPotter</h2>
-					<img src="imagenes/harrypotter.jpg"  >
-					<input type="submit" id="botonPotter" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/harrypotter.jpg" class="imagenCard" >
+					<input type="submit" id="potter" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>		
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Peliculas</h2>
-					<img src="imagenes/peliculas.jpg" >
-					<input type="submit" id="botonPelicula" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/peliculas.jpg" class="imagenCard">
+					<input type="submit" id="peliculas" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>
-				<div class="card">	
+				<div class="card" onmouseenter="playAudio()" >	
 					<h2>Series</h2>
-					<img src="imagenes/series.jpg" >
-					<input type="submit" id="botonSerie" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/series.jpg" class="imagenCard">
+					<input type="submit" id="series" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Geografía</h2>
-					<img src="imagenes/geografia.jpg">
-					<input type="submit" id="botonGeografia" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/geografia.jpg" class="imagenCard">
+					<input type="submit" id="geografia" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Ciudades</h2>
-					<img src="imagenes/ciudades.jpg" >
-					<input type="submit" id="botonCiudades" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/ciudades.jpg" class="imagenCard">
+					<input type="submit" id="ciudades" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>			
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Medicina</h2>
-					<img src="imagenes/medicina.jpg" >
-					<input type="submit" id="botonMedicina" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/medicina.jpg" class="imagenCard">
+					<input type="submit" id="medicina" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Colores</h2>
-					<img src="imagenes/colores.jpg" >
-					<input type="submit" id="botonColores" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<img src="imagenes/colores.jpg" class="imagenCard">
+					<input type="submit" id="colores" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>
-				<div class="card">
+				<div class="card" onmouseenter="playAudio()" >
 					<h2>Enciclopedia</h2>
 					<img src="imagenes/enciclopedia.jpg" >
-					<input type="submit" id="botonEnciclopedia" value="Jugar" class="iniciar" onclick="audioClick(id)">
+					<input type="submit" id="enciclopedia" value="Jugar" class="iniciar" onclick="jugarClick(id)">
 				</div>	
+		    
 		</div>
 		
 			<div class="botonera">
-				<!--	<input type="submit" id="botonIniciar" value="Iniciar" class="iniciar" onclick="audioClick(id)">-->
-					<input type="submit" id="botonAgregar" value="Agregar" class="agregar" onclick="audioClick(id)">
+				<!--	<input type="submit" id="botonIniciar" value="Iniciar" class="iniciar" onclick="jugarClick(id)">-->
+					<input type="submit" id="botonAgregar" value="Ingresar Palabra" class="agregar" onclick="jugarClick(id)">
 			</div>
 			
 			
@@ -73,6 +74,8 @@
 			</div>-->	
 			<p> &copy Copyright Jorge Marino - 2022</p> 
 	</footer>
+<script type="text/javascript" src="jscript/carrousel.js"></script>	
+	
 </body>
 	
 

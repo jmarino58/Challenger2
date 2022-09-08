@@ -1,13 +1,20 @@
 	var errores;	
 	var letrasTipeadas=[];
 	var cantidadAciertos;
+	var lista;
 	function seleccionarPalabra(){
-			var lista = sessionStorage.getItem("palabras").split(","); 
+			lista = sessionStorage.getItem("palabras").split(","); 
 			var listaIngresos = document.getElementById("letrasIngresadas").focus();
 			var valor = Math.floor(Math.random()*lista.length);
 			palabra = lista[valor].toUpperCase();
 			cantidadAciertos=0;
 			errores=0;
+			letrasTipeadas=[];
+			const canvas = document.querySelector("canvas");
+			const context = canvas.getContext('2d');
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			
+		
 		dibujarFigura(errores);
 		dibujarGuion(palabra.length);
 		
@@ -140,6 +147,8 @@
 				var img = document.getElementById(indice);
 				img.src="";
 				img.alt=letra;
+				
+				
 			}
 
 
@@ -148,12 +157,13 @@
 		}
 		
 		 if (cantidadAciertos==palabra.length){
-			alert("FELICITACIONES HAZ ACERTADO LA PALABRA");
+			ganaste();
+			//alert("FELICITACIONES HAZ ACERTADO LA PALABRA");
 			
 		}	
 		if (noEncontrada){
 			const audio=new Audio();
-			audio.src="audios/invalid_selection.mp3";
+			audio.src="audios/incorrecta.mp3";
 			
 			var elemento=document.getElementById('letrasIngresadas');
 			
@@ -181,17 +191,30 @@
 	function perdiste(){
 		const audio=new Audio();
 		audio.src="audios/wahwah.mp3";
+		var msj = document.getElementById('mensaje');
+		msj.style.visibility='visible';
+		setTimeout(ocultar,3000);
 		audio.play();
-		var msjPerdiste=document.getElementById('perdiste');
-		msjPerdiste.style.visibility='visible';
-		setTimeout(ocultar,2000);
+	};
+	
+	function ganaste(){
+		const audio=new Audio();
+		audio.src="audios/ganaste.mp3";
+		
+		var msj = document.getElementById('mensaje');
+		var texto=document.getElementById('perdiste');
+		texto.textContent = "GANASTE"
+		texto.className='ganaste';
+		msj.style.visibility='visible';
+		setTimeout(ocultar,4000);
+		audio.play();
 	};
 
 	function ocultar(){
-		var msjPerdiste=document.getElementById('perdiste');
+		var msj=document.getElementById('mensaje');
 		var nuevoJuego=document.getElementById('nuevo');
 		nuevoJuego.focus();
-		msjPerdiste.style.visibility='hidden';
+		msj.style.visibility='hidden';
 		
 	};
 
@@ -206,5 +229,12 @@
 		const audio=new Audio();
 		audio.src="audios/tap_button.mp3";
 		audio.play();
+		
+		if (lista.length<5){
+			window.location.href ='ingresarPalabra.html';
+		}else{
+		audio.src="audios/tap_button.mp3";
+		audio.play();
 		seleccionarPalabra();
+		}
 	}

@@ -4,9 +4,10 @@ html{
 }
 body {
 	
-	background:url("../imagenes/background.jpg");	
+	background:url("../imagenes/background.jpeg");	
 	background-size:cover;
-	
+	background-repeat: no-repeat;
+	height:100vh;
 }
 header{
 	height:100px;
@@ -18,7 +19,7 @@ header img{
 	top: 2em;
 	padding:2px;
 	transition:0.5s;
-	background:radial-gradient(#7998C6,#2f47a8);
+	background:rgba(255,255,255,0.06);    /*radial-gradient(#7998C6,#2f47a8);*/
 	
 	box-shadow: 0 0 10px #2f47a8;
 	
@@ -31,22 +32,29 @@ header img{
 
 @keyframes filter-animation {
   0% {
-    filter: brightness(100%) brightness(110%);
+    filter: brightness(100%) brightness(100%);
   }
-  50% {
-    filter: brightness(110%) brightness(105%);
+  25% {
+    filter: brightness(110%) brightness(120%);
   }
 
- 
-  100% {
-    filter: brightness(105%) brightness(100%);
+  50% {
+    filter: brightness(110%) brightness(140%);
   }
+  75% {
+    filter: brightness(110%) brightness(120%);
+  }
+  100% {
+    filter: brightness(110%) brightness(100%);
+  }
+
+  
 } 
 
 main{
 	
 	position:relative;
-	height:470px;
+	height:90%;
 	justify-content:center;
 	text-align:center;
 	
@@ -58,28 +66,35 @@ main{
 
 
 .contenedor{
-	
 	display:flex;
-	flex-direction:row;
-	justify-content:center;
 	background-color:transparent;
-	width:50%;
+	width:98%;
 	height:70%;
-	align-items:center;
-	margin: 0 auto;
+	padding-left: 20px;
+	
 	overflow:hidden;
+	scroll-behavior:smooth;
+	user-select: none;
+
+	flex-direction: column;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+		
 }
+
+
 .card{
 	display:flex;
 	flex-direction:column;
+	height:80%;
 	gap:1px;
 	border-radius:1rem;
 	box-shadow: 0 1rem 1rem rgba(0,0,0,0.2);
-	margin:0.5rem;
+	margin:1rem;
 	background-color:rgba(255,255,255,0.06);
 	border: .1rem solid rgba(255,255,255,0.18);
 	color:var(--white-text);
-	
 	
 }
 
@@ -97,13 +112,19 @@ main{
 	object-fit:fill;
 	width:300px;
 	height:200px;
-	cursor: pointer;
+	pointer-events: none;
 	z-index:0;
+}
+.card:hover{
+	 
+	transform: scale(1.05);
+	
+	transition: all 0.1s ease-in-out 0.1s;
 }
 
 .card input{
 	position:relative;
-	bottom:5em;
+	bottom:1em;
 	left:32%;
 	width: 100px;
 	height: 50px;
@@ -120,6 +141,7 @@ main{
 	
 	
 }
+
 
 .card input:hover{
 	border-color:#ffffff;
@@ -196,6 +218,7 @@ footer{
 	
 	width:100%;
 	
+	bottom:1px;
 	
 	background:linear-gradient(#096EF2,#87ADE5);
 	text-align:center;
