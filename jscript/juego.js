@@ -2,6 +2,7 @@
 	var letrasTipeadas=[];
 	var cantidadAciertos;
 	var lista;
+	var espacios=0;
 	function seleccionarPalabra(){
 			lista = sessionStorage.getItem("palabras").split(","); 
 			var listaIngresos = document.getElementById("letrasIngresadas").focus();
@@ -16,33 +17,21 @@
 			
 		
 		dibujarFigura(errores);
-		dibujarGuion(palabra.length);
+		dibujarGuion(palabra.length,palabra);
 		
 	}
-	
-	
-	
-	/*function mostrarImagenes(numeroError){
-		dibujarFigura(numeroError);	  
-    }*/
 	
 	
 	
 	function dibujarFigura(numero){
 		var x=50;
 		var y=120;
-		/*coordenadas=[[50,140,150,140],[100,140,100,20],[99,20,130,20],[130,20,130,50],[130,50,5],[130,55,130,80],[130,55,120,65],[130,55,140,65],[130,80,120,90],[130,80,140,90]];*/
-		var coordImagenes=[[x,y,200,2],[x+80,y,2,-100],[x+80,y-100,40,2],[x+118,y-110,2,40],[x+114,y-83,10,10],[x+118,y-73,2,20],[x+110,y-73,10,10],[x+117,y-73,10,10],[x+110,y-53,10,10],[x+117,y-53,10,10]];
+		
+		var coordImagenes=[[x,y,200,2],[x+80,y,2,-100],[x+80,y-100,40,2],[x+118,y-100,2,18],[x+114,y-83,10,10],[x+118,y-73,2,20],[x+110,y-73,10,10],[x+117,y-73,10,10],[x+110,y-53,10,10],[x+117,y-53,10,10]];
 	
 		var imagenes=['imagenes/base.svg','imagenes/poste.svg','imagenes/techo.svg','imagenes/soga.svg','imagenes/cabeza.svg','imagenes/cuerpo.svg','imagenes/brazoDcho.svg','imagenes/brazoIzq.svg','imagenes/pieDcho.svg','imagenes/pieIzq.svg'];
 		const canvas = document.querySelector("canvas");
 		const context = canvas.getContext('2d');
-		/*if (numero!=4){
-			context.beginPath();
-			context.moveTo(coordenadas[numero][0],coordenadas[numero][1]);
-			context.lineTo(coordenadas[numero][2],coordenadas[numero][3]);
-			context.stroke();
-			*/
 			var img = new Image(); 
 			img.src =imagenes[numero];
 			img.onload =function(){
@@ -88,8 +77,8 @@
 		
 	}*/
 	
-	function dibujarGuion(cantidad){
-		
+	function dibujarGuion(cantidad,palabra){
+		console.log(palabra);
 		var caja = document.getElementById('cajaPalabra');	
 		var elemento=document.getElementById('letrasIngresadas');
 		
@@ -109,12 +98,18 @@
 		
 		img.style.paddingLeft=paddingInicial;
 		for(let x=0;x<cantidad;x++){
+		//si No es un espacio en blanco pongo los guiones
 			const img= document.createElement('img');
-			img.src='imagenes/baseLetras.svg';
 			img.className='imagenGuion';
 			img.id=x;
+			if (palabra[x]!=' '){
+				img.src='imagenes/baseLetras.svg';
+		//si es espacio en blanco pongo la imagen con el espacio en blanco
+			}else{
+				img.src='imagenes/baseEspacio.svg';
+				espacios++;
+			}
 			caja.appendChild(img);
-			
 		}
 	
 
@@ -146,7 +141,15 @@
 				cantidadAciertos++;
 				var img = document.getElementById(indice);
 				img.src="";
-				img.alt=letra;
+				img.outerHTML = "<p class='imagenGuion'>"+letra+"</p>";
+				img.onerror=() => {
+					//img.onerror = null;
+					
+					//img.outerHTML = "<p class='imagenGuion'>"+letra+"</p>";
+				  };
+
+				
+				//img.alt=letra;
 				
 				
 			}
@@ -156,7 +159,7 @@
 				
 		}
 		
-		 if (cantidadAciertos==palabra.length){
+		 if (cantidadAciertos==(palabra.length-espacios)){
 			ganaste();
 			//alert("FELICITACIONES HAZ ACERTADO LA PALABRA");
 			
@@ -192,6 +195,10 @@
 		const audio=new Audio();
 		audio.src="audios/wahwah.mp3";
 		var msj = document.getElementById('mensaje');
+		var texto=document.getElementById('perdiste');
+		texto.textContent = "PERDISTE"
+		texto.className='perdiste';
+		
 		msj.style.visibility='visible';
 		setTimeout(ocultar,3000);
 		audio.play();

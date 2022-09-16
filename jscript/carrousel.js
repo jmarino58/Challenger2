@@ -1,6 +1,6 @@
 		let container = document.querySelector('.contenedor');
+		let interno=document.querySelector('.interno');
 		
-		let cards = document.querySelector('.card');
 		
 		let pressed = false;
 		let startX;
@@ -8,10 +8,11 @@
 		let scrollLeft;
 		
 		container.addEventListener('mousedown',(e)=>{
+			
 			pressed = true;
-			startX= e.pageX-cards.offsetLeft;
+			startX=e.pageX;
 			container.style.cursor = 'grabbing';
-			scrollLeft= container.scrollLeft;
+			//scrollLeft= container.scrollLeft;
 		});
 		
 		container.addEventListener('mouseleave',()=>{
@@ -28,11 +29,11 @@
 		container.addEventListener('mousemove',(e)=>{
 			if (!pressed) return;
 			e.preventDefault();
-			x = e.pageX - container.offsetLeft;
-			container.scrollLeft=x;
 			
-	
-		
+			x = e.clientX; 
+			interno.scrollLeft=x+startX;
+			
+		 
 		});
 	
 	
