@@ -6,7 +6,7 @@ body {
 	height:85%;
 }
 main{
-	height:100%;
+	height:98%;
 	
 }
 
@@ -156,7 +156,11 @@ main{
   }
   
   50% {font-size: 40px;}
+
+
+
 }
+
 
 @media screen and (max-width:630px){
 header img{
@@ -188,11 +192,14 @@ header img{
 	width:400px;
 	
 }
+main{
+	
+	height:97%;
+	
+}
+}
 
-
-
-
-@media screen and (max-width:500px){
+@media screen and (max-width:512px){
 
 
 .cajaPalabra{
@@ -219,5 +226,28 @@ header img{
 	font-size: 10px;
 	top:0px;
 	gap: 10px;	
+}
+main{
+	
+
+	height:95%;
+	
+}
+
+.guardar{
+	width: 250px;
+	height: 50px;
+	
+	
+}
+
+
+.cancelar{
+	
+	width: 250px;
+	height: 50px;
+	
+	font-size: 16px;
+
 }
 }
