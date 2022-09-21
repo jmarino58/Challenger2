@@ -11,6 +11,7 @@
 			cantidadAciertos=0;
 			errores=0;
 			letrasTipeadas=[];
+			espacios=0;
 			const canvas = document.querySelector("canvas");
 			const context = canvas.getContext('2d');
 			context.clearRect(0, 0, canvas.width, canvas.height);
@@ -18,7 +19,7 @@
 		
 		dibujarFigura(errores);
 		dibujarGuion(palabra.length,palabra);
-		
+		habilitar();
 	}
 	
 	
@@ -106,7 +107,7 @@
 				img.src='imagenes/baseLetras.svg';
 		//si es espacio en blanco pongo la imagen con el espacio en blanco
 			}else{
-				img.src='imagenes/baseEspacio.svg';
+				img.src='imagenes/baseEspacio.png';
 				espacios++;
 			}
 			caja.appendChild(img);
@@ -138,30 +139,30 @@
 			
 			if (letra==palabra[indice]){
 				noEncontrada=false;		
-				cantidadAciertos++;
+			
 				var img = document.getElementById(indice);
 				img.src="";
 				img.outerHTML = "<p class='imagenGuion'>"+letra+"</p>";
-				img.onerror=() => {
-					//img.onerror = null;
+				/*img.onerror=() => {
+					img.onerror = null;
 					
-					//img.outerHTML = "<p class='imagenGuion'>"+letra+"</p>";
+					img.outerHTML = "<p class='imagenGuion'>"+letra+"</p>";
 				  };
-
 				
-				//img.alt=letra;
+				img.alt=letra;*/
 				
-				
+				cantidadAciertos++;	
 			}
 
 
 			
-				
+			
 		}
-		
+		console.log(cantidadAciertos,palabra.length);
 		 if (cantidadAciertos==(palabra.length-espacios)){
+			
 			ganaste();
-			//alert("FELICITACIONES HAZ ACERTADO LA PALABRA");
+			
 			
 		}	
 		if (noEncontrada){
@@ -194,26 +195,41 @@
 	function perdiste(){
 		const audio=new Audio();
 		audio.src="audios/wahwah.mp3";
+		deshabilitar();
+		var br = document.createElement("span");
+		var br2 = document.createElement("span");
+		br.setAttribute("data-text","La Palabra era");
+		br2.setAttribute("data-text",palabra);
+		
 		var msj = document.getElementById('mensaje');
 		var texto=document.getElementById('perdiste');
-		texto.textContent = "PERDISTE"
+		texto.textContent = "";
+		texto.setAttribute("data-text", "PERDISTE");
+		texto.appendChild(br);
+		texto.appendChild(br2);
 		texto.className='perdiste';
 		
 		msj.style.visibility='visible';
-		setTimeout(ocultar,3000);
+		setTimeout(ocultar,5000);
 		audio.play();
 	};
 	
 	function ganaste(){
+		
 		const audio=new Audio();
 		audio.src="audios/ganaste.mp3";
-		
+		deshabilitar();
 		var msj = document.getElementById('mensaje');
 		var texto=document.getElementById('perdiste');
+		texto.classList.replace("perdiste", "ganaste");
+		//texto.className='ganaste';
 		texto.textContent = "GANASTE"
-		texto.className='ganaste';
+		texto.setAttribute("data-text", "GANASTE");
+		
+		
+		
 		msj.style.visibility='visible';
-		setTimeout(ocultar,4000);
+		setTimeout(ocultar,5000);
 		audio.play();
 	};
 
@@ -224,7 +240,14 @@
 		msj.style.visibility='hidden';
 		
 	};
+	
+	function deshabilitar(){
+		var msj=document.getElementById('letrasIngresadas').disabled=true;
+	}
 
+	function habilitar(){
+		var msj=document.getElementById('letrasIngresadas').disabled=false;
+	}
 		
 		
 		
