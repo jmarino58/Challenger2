@@ -8,7 +8,7 @@
 			
 			
 			var listaIngresos2 = document.getElementById("letrasIngresadas").focus();
-			var listaIngresos = document.querySelector(".Ingresadas").focus();
+			var listaIngresos = document.getElementById("Ingresadas").focus();
 			var valor = Math.floor(Math.random()*lista.length);
 			palabra = lista[valor].toUpperCase();
 			cantidadAciertos=0;
