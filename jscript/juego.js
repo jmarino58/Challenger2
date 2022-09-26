@@ -9,13 +9,15 @@
 			
 			
 			
-			var listaIngresos2 = document.getElementById("letrasIngresadas").focus();
-			var listaIngresos = document.getElementById("ingresadas").focus();
+			var listaIngresos = document.getElementById("letrasIngresadas").focus();
+			
+			//var listaIngresos = document.getElementById("ingresadas").focus();
 			var valor = Math.floor(Math.random()*lista.length);
 			palabra = lista[valor].toUpperCase();
 			cantidadAciertos=0;
 			errores=0;
 			letrasTipeadas=[];
+			
 			espacios=0;
 			const canvas = document.querySelector("canvas");
 			const context = canvas.getContext('2d');

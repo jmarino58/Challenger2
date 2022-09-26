@@ -49,9 +49,14 @@ main{
 	align-items:center;
 	justify-content:center;
 	margin:0 auto;
-	gap: 30px;
+	text-transform: uppercase;
 	padding:5px;
 	
+	
+	
+	font-size: 30px;
+	
+	letter-spacing:1em;	
 	
 
 
@@ -244,6 +249,9 @@ header img{
 .letrasIngresadas{
 	width:400px;
 	
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing:1em;	
 }
 
 main{
@@ -273,13 +281,16 @@ main{
 
 .letrasIngresadas{
 	width:200px;
-	
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing:1em;	
 }
 .letrasIngresadas  p{
 	width:2px;
-	font-size: 10px;
+	font-size: 20px;
 	top:0px;
-	gap: 10px;	
+	letter-spacing:1em;	
+	text-transform: uppercase;
 }
 
 
