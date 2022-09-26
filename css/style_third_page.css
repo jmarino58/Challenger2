@@ -6,7 +6,7 @@ body {
 	height:90%;
 }
 main{
-	height:90%;
+	height:95%;
 	
 }
 
@@ -246,6 +246,11 @@ header img{
 	
 }
 
+main{
+	height:90%;
+	
+}
+
 }
 
 @media screen and (max-width:512px){
@@ -293,5 +298,9 @@ header img{
 	
 	font-size: 16px;
 
+}
+main{
+	height:90%;
+	
 }
 }
