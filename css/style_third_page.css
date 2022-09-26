@@ -6,7 +6,7 @@ body {
 	height:90%;
 }
 main{
-	height:98%;
+	height:90%;
 	
 }
 
@@ -64,8 +64,7 @@ main{
           100% { background-color: #fafcfc; box-shadow: 0 0 3px #fafcfc; opacity: .3;}
       }
 
- /*9cb0ez 92d5ff 9cb0ea
-*/
+
 
 .letrasIngresadas  p{
 	width:4px;
@@ -100,7 +99,7 @@ main{
 	/*border-radius: 70%;*/
 	border:none;
 	/*box-shadow: 0 2px 4px darkslategray;*/
-	background:#000000EE; /*linear-gradient(#201e33,#4b4778,#544d9e);*/
+	background:#000000EE; 
 	
 	overflow:hidden;
 	/*Dark blue/dark-blue-300 #0A3871*/
@@ -125,9 +124,7 @@ main{
 	align-items:center;
 	
 	
-	/*animation: perder 1.5s infinite alternate;
-	transform: scale(5) ;
-	transition: all 0.5s ease-in-out 1s;*/
+	
 }
 
 .perdiste::before {
@@ -165,9 +162,7 @@ main{
 	justify-content:center;
 	align-items:center;
 	user-select:none;
-	/*animation: ganador  1.5s infinite alternate;
-	transform: scale(8);
-	transition: all 0.5s ease-in-out 1s;*/
+	
 }
 
 .ganaste::before {
@@ -220,56 +215,6 @@ main{
 
 
 
-/*
-@keyframes perder{
-  
-  0%{color:red; text-shadow:0 0 10px red}
-  25%{color:red; text-shadow:2px 2px 2px red; transform: translate(-2px,1px)}
-  40%{color:red; text-shadow:none; transform: translate(0,0)}
-  50%{color:red; text-shadow:0px 0px 0px red, 5px 5px 5px red; transform: translate(0px,0px); font-size:40px}
-  70%{color:red; text-shadow:none; transform: translate(0,0)}
-  80%{color:red; text-shadow:0 0 20px red; transform: translate(-2px,1px)}
-  100%{color:red; text-shadow:none;}
-}
-*/
-
-
-/*
-@keyframes ganador {
-  0%{color:lime; text-shadow:0 0 10px green}
-  25%{color:green; text-shadow:2px 2px 2px lime; transform: translate(-2px,1px)}
-  40%{color:green; text-shadow:none; transform: translate(0,0)}
-  50%{color:green; text-shadow:0px 0px 0px lime,5px 5px 5px green;
-				   transform: translate(0px,0px);
-				   font-size:40px
-	 }
-  70%{color:green; text-shadow:none; transform: translate(0,0)}
-  80%{color:green; text-shadow:0 0 20px green; transform: translate(-2px,1px)}
-  100%{color:green; text-shadow:none;}
-}
-
-
-@keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-  text-shadow:
-    0 0 2px #fff,
-    0 0 8px #ffa,
-    0 0 12px #0fc,
-    0 0 20px #0fa,
-	
-  }
-  
-  20%, 24%, 55% {        
-      text-shadow: none;
-  }
-  
-  50% {font-size: 40px;}
-
-
-
-}*/
-
-
 @media screen and (max-width:630px){
 header img{
 	top: 0.5em;
@@ -300,11 +245,7 @@ header img{
 	width:400px;
 	
 }
-main{
-	
-	height:97%;
-	
-}
+
 }
 
 @media screen and (max-width:512px){
@@ -335,12 +276,7 @@ main{
 	top:0px;
 	gap: 10px;	
 }
-main{
-	
 
-	height:95%;
-	
-}
 
 .guardar{
 	width: 250px;
