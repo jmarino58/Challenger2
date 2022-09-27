@@ -22,34 +22,21 @@
 				</canvas>
 				<div class="cajaPalabra" id="cajaPalabra" 	width="100%">
 				</div>
-				
-				<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off" onkeyup="teclaPresionada(event)" >	
-					
+				<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zA-Z]/,'')"
+				onkeypress="teclaPresionada(event)" >	
 				</div>
-				
 			</div>
 			<div class="botones">			
 					<input type="submit" id="nuevo" value="Nuevo Juego" class="guardar" onclick="nuevaPartida()" >
 					<input type="submit" id="desistir" value="Desistir" class="cancelar" onclick="jugarClick(id)" >
 			</div>
-			
 	</main>
-	
 	<div id="mensaje" class="mensaje">
-		
 			<span id="perdiste" class="perdiste" data-text=""></span>
 			<span class="spotlight"></span>
 	</div>
 	<footer>
-			<!--<div class="mute">
-				<img src="imagenes/unmute_icon.png" id="btn_mute"  onclick="muteButton('audio3')" width="20px" height="20px">
-			</div>-->
 			<p> &copy Copyright Jorge Marino - 2022</p> 
 	</footer>
-	
 </body>
-	
-
-
-
 </html>

@@ -6,9 +6,6 @@
 	function seleccionarPalabra(){
 			lista = sessionStorage.getItem("palabras").split(","); 
 			
-			
-			
-			
 			var listaIngresos = document.getElementById("letrasIngresadas").focus();
 			
 			//var listaIngresos = document.getElementById("ingresadas").focus();
@@ -17,7 +14,6 @@
 			cantidadAciertos=0;
 			errores=0;
 			letrasTipeadas=[];
-			
 			espacios=0;
 			const canvas = document.querySelector("canvas");
 			const context = canvas.getContext('2d');
@@ -125,16 +121,25 @@
 	}
 	
 	function teclaPresionada(event){
-		if ((event.keyCode >=65 && event.keyCode<=90) || (event.keyCode>=97 && event.keyCode<=122)){
-			var letra=String.fromCharCode(event.keyCode);
-			letra=letra.toUpperCase();
-			evaluarLetra(letra);
-
-		} else if (event.keyCode==13 && event.keyCode==27 && event.keyCode==32 && event.keyCode==9 && event.keyCode==8 ){
-			
-			
-				alert("Error debe presionar una letra del abecedario");
+		
+		var letra=String.fromCharCode(event.keyCode).toUpperCase();
+		if (((letra>='A' && letra<='Z')) && !(letrasTipeadas.includes(letra))){
+			var resultado=evaluarLetra(letra);
+	 		 letrasTipeadas.push(letra);
+			if (!resultado){
+				event.preventDefault();	
 			}
+
+		}else{
+			event.preventDefault();
+		}
+		
+		
+		
+		
+		
+		
+		
 			
 	}
 	
@@ -178,17 +183,17 @@
 			
 			var elemento=document.getElementById('letrasIngresadas');
 			
-			if (!letrasTipeadas.includes(letra)){
-				const p= document.createElement("p");
-				const node= document.createTextNode(letra);
-				letrasTipeadas.push(letra);
-				p.appendChild(node);
-				elemento.appendChild(p);
+			//if (!letrasTipeadas.includes(letra)){
+				//const p= document.createElement("p");
+				//const node= document.createTextNode(letra);
+				
+				//p.appendChild(node);
+				//elemento.appendChild(p);
 				audio.play();
 				errores++;
 				dibujarFigura(errores);
 			
-			}
+			//}
 			
 			if (errores==9){
 				perdiste();
@@ -196,7 +201,7 @@
 			}
 		}
 		
-		
+		return noEncontrada;
 		}
 		
 	function perdiste(){
@@ -272,6 +277,7 @@
 		}else{
 		audio.src="audios/tap_button.mp3";
 		audio.play();
+		document.getElementById("letrasIngresadas").value="";
 		seleccionarPalabra();
 		}
 	}

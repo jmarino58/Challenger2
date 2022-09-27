@@ -3,11 +3,11 @@ html{
 	
 }
 body {
-	
+	height:100%;	
 	background:url("../imagenes/background.jpeg");	
-	background-size:cover;
+	
 	background-repeat: no-repeat;
-	height:100vh;
+	
 }
 header{
 	height:100px;
@@ -54,7 +54,9 @@ header img{
 main{
 	
 	position:relative;
-	height:85vh;
+	height:82vh;
+	min-height:268px;
+
 	justify-content:center;
 	text-align:center;
 	
@@ -67,9 +69,9 @@ main{
 
 .contenedor{
 	display:flex;
-	
+	box-sizing: content-box;
 	width:98%;
-	height:70%;
+	
 	flex-wrap:wrap;
 	justify-content:center;
 	align-items:center;	
@@ -104,7 +106,7 @@ main{
 	background-color:rgba(255,255,255,0.06);
 	border: .1rem solid rgba(255,255,255,0.18);
 	color:var(--white-text);
-	scroll-snap-align:center;
+	/*scroll-snap-align:center;*/
 }
 
 
@@ -163,6 +165,7 @@ main{
 
 
 .botonera{
+	box-sizing: content-box;
 	position:relative;
 	display:flex;
 	flex-direction: column;
@@ -197,7 +200,7 @@ input:hover {
 	line-height: 19px;
 	text-align: center;
 	background:#FFFFFF55;
-	color: #;
+	
 
 	
 	
@@ -206,21 +209,11 @@ input:hover {
 
 
 
-.mute{
-	position:absolute;
-	display:flex;
-	flex-direction: row;
-	align-items: flex-end;
-	top:3px;
-	left:3px;
-	padding: 0 0px 6px;
-	
-	
-}
-
 footer{
+	
 	width:100%;
-	bottom:1px;
+	height:50px;
+	
 	
 	background:linear-gradient(30deg,#FFFFFF11,#d9c91811,#d9c91844,#d9c91888,#9e5e1588,#9e5e1544,#9e5e1511,#FFFFFF11);
 	text-align:center;
@@ -228,23 +221,16 @@ footer{
 }
 
 footer p{
-	padding:10px;
+	padding:15px;
 	
 }
 
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1200px){
 
 .interno{
 	overflow:auto;
-
-	
-	
 }
-
-
-
-
 
 .card img{
 	height: 100px;
@@ -267,12 +253,80 @@ footer p{
 	transition: all 0.1s ease-in-out 0.1s;
 	
 }
+
+
+}
+
+@media screen and (max-width:400px){
+
+header{
+	height:50px;
+}
+header img{
+	position: absolute;
+	height:20px;
+	width:20px;
+	left: 2%;
+	right: 7.43%;
+	padding:1px;
+	transition:0.5s;
+	background:rgba(255,255,255,0.06);    /*radial-gradient(#7998C6,#2f47a8);*/
+	
+	box-shadow: 0 0 10px #2f47a8;
+	
+    border-radius: 20px;
+	-webkit-filter: brightness(130%);
+
+   animation: filter-animation 2s infinite;
+
+}
+
+@media screen and (max-height:700px){
 main{
+		height:79vh;
 	
-
-	height:89vh;
+}
 	
 }
 
+@media screen and (max-height:600px){
+main{
+		height:77vh;
+	
+}
+	
 }
 
+
+
+@media screen and (max-height:500px){
+main{
+		height:70vh;
+	
+}
+.botonera{
+	top:1vh;
+	width:100%;
+	padding: 0 0px 6px;
+	
+	
+	
+}
+
+.agregar{
+	
+	width: 200px;
+	height: 30px;
+	margin-top:2px;
+	
+	border-radius: 24px;
+	border-width:3px;
+	
+	font-weight: 200;
+	font-size: 12px;
+	line-height: 19px;
+	
+		
+}
+	
+}

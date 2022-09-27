@@ -1,12 +1,17 @@
+html{
+	min-height:700px;
+	
+}
 body {
 	
 	background:url("../imagenes/background3.jpg");	
 	background-size:cover;
 	background-repeat: no-repeat;
-	height:90%;
+	height:100%;
+	
 }
 main{
-	height:95%;
+	min-height:564px;
 	
 }
 
@@ -221,6 +226,9 @@ main{
 
 
 @media screen and (max-width:630px){
+main{
+	height:85%;
+}
 header img{
 	top: 0.5em;
 	height:30px;
@@ -254,10 +262,7 @@ header img{
 	letter-spacing:1em;	
 }
 
-main{
-	height:90%;
-	
-}
+
 
 }
 
@@ -310,8 +315,10 @@ main{
 	font-size: 16px;
 
 }
+
+}
+@media screen and (max-width:730px){
 main{
-	height:90%;
-	
+	height:79%;
 }
 }
