@@ -22,8 +22,8 @@
 				</canvas>
 				<div class="cajaPalabra" id="cajaPalabra" 	width="100%">
 				</div>
-				<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zA-Z]/,'');teclaPresionada(event)"
-				>	
+				<input type="text" id="letrasIngresadas"  class="letrasIngresadas" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zA-Z]/,'');"
+				onkeydown="teclaPresionada(event);">	
 				</div>
 			</div>
 			<div class="botones">			

@@ -83,7 +83,7 @@
 	}*/
 	
 	function dibujarGuion(cantidad,palabra){
-		console.log(palabra);
+		
 		var caja = document.getElementById('cajaPalabra');	
 		var elemento=document.getElementById('letrasIngresadas');
 		
@@ -123,14 +123,17 @@
 	
 	function teclaPresionada(event){
 		
-		var letra=event.data.toUpperCase();
-		if (((letra>='A' && letra<='Z')) && !(letrasTipeadas.includes(letra))){
-			var resultado=evaluarLetra(letra);
+		//var letra=event.data.toUpperCase();
+		var letra=event.key.toUpperCase();
+		if (letra=='BACKSPACE'){
+			event.preventDefault();	
+		}else if (((letra>='A' && letra<='Z')) && !(letrasTipeadas.includes(letra))){
+			 var resultado=evaluarLetra(letra);
 	 		 letrasTipeadas.push(letra);
+
 			if (!resultado){
 				event.preventDefault();	
 			}
-
 		}else{
 			event.preventDefault();
 		}
@@ -171,7 +174,7 @@
 			
 			
 		}
-		console.log(cantidadAciertos,palabra.length);
+		
 		 if (cantidadAciertos==(palabra.length-espacios)){
 			
 			ganaste();
