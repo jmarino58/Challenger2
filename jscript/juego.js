@@ -3,6 +3,7 @@
 	var cantidadAciertos;
 	var lista;
 	var espacios=0;
+	
 	function seleccionarPalabra(){
 			lista = sessionStorage.getItem("palabras").split(","); 
 			
@@ -122,7 +123,7 @@
 	
 	function teclaPresionada(event){
 		
-		var letra=String.fromCharCode(event.keyCode).toUpperCase();
+		var letra=event.data.toUpperCase();
 		if (((letra>='A' && letra<='Z')) && !(letrasTipeadas.includes(letra))){
 			var resultado=evaluarLetra(letra);
 	 		 letrasTipeadas.push(letra);
